@@ -10,22 +10,17 @@ var modelMiddleware = require("./middleware/model.js");
 
 var resetEndpoint = require("./endpoints/reset.js");
 
-function Application(config, log) {
-    this.config = config;
-    this.log = log;
-}
-
-Application.prototype.start = function() {
+module.exports = function(config, log, callback) {
     var app = express();
     app.use(bodyParser.json());
     app.use(cors());
 
-    Model(this.config, this.log, (error, db) => {
+    Model(config, log, (error, db) => {
         if (error) {
             throw error;
         }
 
-        app.use("/", logMiddleware(this.log));
+        app.use("/", logMiddleware(log));
         app.use("/", modelMiddleware(db));
 
         app.use(   "/users/:userId",                        require("./middleware/users.js"));
@@ -49,17 +44,15 @@ Application.prototype.start = function() {
         app.use(   "/items/:itemId",                        require("./middleware/items.js"));
 
         app.post(  "/items",                                require("./endpoints/items/createItem.js"));
-        app.get(   "/items",                               require("./endpoints/items/getItems.js"));
+        app.get(   "/items",                                require("./endpoints/items/getItems.js"));
         app.get(   "/items/:itemId",                        require("./endpoints/items/getItem.js"));
 
         app.get("/", (req, res) => { res.send({ status: "alive" }); });
 
-        if(this.config.util.getEnv("NODE_ENV") === "development") {
+        if(config.util.getEnv("NODE_ENV") === "development") {
             app.post("/reset", resetEndpoint);
         }
 
-        app.listen(this.config.port, this.config.host);
+        callback(null, app);
     });
 };
-
-module.exports = Application;
