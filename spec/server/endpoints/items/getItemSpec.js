@@ -1,4 +1,4 @@
-var getItem = require("../../../lib/endpoints/items/getItem.js");
+var getItem = require("../../../../server/lib/endpoints/items/getItem.js");
 
 describe("getItem", () => {
     it("works", () => {
