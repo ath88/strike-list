@@ -18,12 +18,20 @@
     "url": "https://github.com/ath88/strike-list/issues"
   },
   "dependencies": {
+    "ampersand-app": "^1.0.4",
+    "ampersand-rest-collection": "^5.0.0",
+    "ampersand-router": "^3.0.2",
+    "ampersand-view": "^9.0.2",
+    "ampersand-view-switcher": "^2.1.0",
     "async": "^1.5.2",
     "body-parser": "^1.15.0",
     "bunyan": "^1.6.0",
     "config": "^1.19.0",
     "cors": "^2.7.1",
+    "domready": "^1.0.8",
     "express": "^4.13.4",
+    "local-links": "^1.4.0",
+    "moonboots-express": "^3.0.0",
     "pg": "^4.4.6",
     "sequelize": "^3.19.3"
   },
