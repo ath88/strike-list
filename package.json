@@ -3,19 +3,26 @@
   "version": "1.0.0",
   "description": "strike list for my good friends to use",
   "main": "index.js",
-  "scripts": {
-    "start": "node index.js | node_modules/.bin/bunyan -o long",
-    "test": "node node_modules/.bin/jasmine",
-    "cover": "node node_modules/.bin/istanbul --include-all-sources cover -x '**/spec/**' node_modules/.bin/jasmine"
+  "engines": {
+      "node": "^5.8.0"
+  },
+  "license": "ISC",
+  "publishConfig": {
+      "registry": "http://npmjs.org"
   },
   "author": "Asbjørn Thegler <asbjoern@thegler.dk> (http://aths.dk)",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/ath88/strike-list"
-  },
+  "contributors": [],
+  "homepage": "https://github.com/cube-io/strike-list",
+  "repository": "ath88/strike-list",
   "bugs": {
+    "email": "asbjoern@thegler.dk",
     "url": "https://github.com/ath88/strike-list/issues"
+  },
+  "scripts": {
+      "start": "node index.js | node_modules/.bin/bunyan -o long",
+      "test": "node node_modules/.bin/jasmine",
+      "test-integration": "node node_modules/.bin/cucumber",
+      "cover": "node node_modules/.bin/istanbul --include-all-sources cover -x '**/spec/**' -x '**/features/**' node_modules/.bin/jasmine"
   },
   "dependencies": {
     "ampersand-app": "^1.0.4",
@@ -36,7 +43,14 @@
     "sequelize": "^3.19.3"
   },
   "devDependencies": {
+    "cucumber": "^0.9.5",
     "istanbul": "^0.4.2",
     "jasmine": "^2.4.1"
-  }
+  },
+  "files": [
+    "config/",
+    "client/",
+    "server/",
+    "index.js"
+  ]
 }
