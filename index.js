@@ -4,6 +4,4 @@ var Service = require("./lib/Service.js");
 
 log.info("Current environment is '" + config.util.getEnv("NODE_ENV") + "'");
 
-var service = new Service(config, log);
-
-service.start();
+new Service(config, log).start();

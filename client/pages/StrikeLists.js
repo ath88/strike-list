@@ -1,7 +1,6 @@
 var View = require("ampersand-view");
 var StrikeListView = require("../views/StrikeListView.js");
 
-
 module.exports = View.extend({
     pageTitle: "Strike Lists",
     template: "<div><h3>Strike lists</h3><ul><main data-hook=\"strike-lists\"></main></ul></div>",
