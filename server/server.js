@@ -8,6 +8,8 @@ var Model = require("./Model.js");
 var logMiddleware = require("./middleware/log.js");
 var modelMiddleware = require("./middleware/model.js");
 
+var DomainsResource = require("./resources/Domains.js");
+
 var resetEndpoint = require("./endpoints/reset.js");
 
 module.exports = function(config, log, callback) {
@@ -46,6 +48,8 @@ module.exports = function(config, log, callback) {
         app.post(  "/items",                                require("./endpoints/items/createItem.js"));
         app.get(   "/items",                                require("./endpoints/items/getItems.js"));
         app.get(   "/items/:itemId",                        require("./endpoints/items/getItem.js"));
+
+        app.use("/domains", new DomainsResource());
 
         app.get("/", (req, res) => { res.send({ status: "alive" }); });
 
