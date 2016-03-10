@@ -9,6 +9,7 @@ var logMiddleware = require("./middleware/log.js");
 var modelMiddleware = require("./middleware/model.js");
 
 var DomainsResource = require("./resources/Domains.js");
+var UsersResource = require("./resources/Users.js");
 
 var resetEndpoint = require("./endpoints/reset.js");
 
@@ -25,17 +26,6 @@ module.exports = function(config, log, callback) {
         app.use("/", logMiddleware(log));
         app.use("/", modelMiddleware(db));
 
-        app.use(   "/users/:userId",                        require("./middleware/users.js"));
-
-        app.post(  "/users",                                require("./endpoints/users/createUser.js"));
-        app.get(   "/users",                                require("./endpoints/users/getUsers.js"));
-        app.get(   "/users/:userId",                        require("./endpoints/users/getUser.js"));
-        app.delete("/users/:userId",                        require("./endpoints/users/deleteUser.js"));
-        app.post(  "/users/:userId/activate",               require("./endpoints/users/activateUser.js"));
-        app.post(  "/users/:userId/deactivate",             require("./endpoints/users/deactivateUser.js"));
-        app.post(  "/users/:userId/addBalance",             require("./endpoints/users/addBalance.js"));
-        app.post(  "/users/:userId/buy/:itemId/in/:listId", require("./endpoints/users/buyItemInList.js"));
-
         app.use(   "/lists/:listId",                        require("./middleware/lists.js"));
 
         app.post(  "/lists",                                require("./endpoints/lists/createList.js"));
@@ -50,6 +40,7 @@ module.exports = function(config, log, callback) {
         app.get(   "/items/:itemId",                        require("./endpoints/items/getItem.js"));
 
         app.use("/domains", new DomainsResource());
+        app.use("/users",   new UsersResource());
 
         app.get("/", (req, res) => { res.send({ status: "alive" }); });
 

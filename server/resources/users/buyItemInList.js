@@ -1,4 +1,4 @@
-module.exports = function buyItemInList(req, res) {
+module.exports = function buyItemInListForUser(req, res) {
     var amount = req.body.amount;
     if(!amount || amount < 0) {
         req.log.error("Amount must be positive");

@@ -1,4 +1,4 @@
-module.exports = function deactivateUserEndpoint(req, res) {
+module.exports = function deleteUser(req, res) {
     req.user.destroy().then(() => {
         req.log.info("Deleted user");
         res.status(200).send({ user: req.user });
