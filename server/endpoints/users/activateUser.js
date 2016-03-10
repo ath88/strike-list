@@ -1,4 +1,4 @@
-module.exports = function activateUserEndpoint (req, res) {
+module.exports = function activateUserEndpoint(req, res) {
     if(req.user.active) {
         req.log.error("User already activated");
         return res.status(400).send({

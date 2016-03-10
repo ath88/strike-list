@@ -1,4 +1,4 @@
-module.exports = function closeListEndpoint (req, res) {
+module.exports = function closeListEndpoint(req, res) {
     if(!req.list.open) {
         req.log.error("List already closed");
         return res.status(400).send({

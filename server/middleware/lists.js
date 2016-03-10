@@ -1,4 +1,4 @@
-module.exports = function listMiddleware (req, res, next) {
+module.exports = function listMiddleware(req, res, next) {
     var listId = req.params.listId;
 
     req.model.lists.findById(listId).then((list) => {

@@ -1,4 +1,4 @@
-function modelMiddleware (db, req, res, next) {
+function modelMiddleware(db, req, res, next) {
     req.db = db;
     req.model = db.models;
     return next();

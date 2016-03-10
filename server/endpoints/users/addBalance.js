@@ -1,4 +1,4 @@
-module.exports = function addBalanceEndpoint (req, res) {
+module.exports = function addBalanceEndpoint(req, res) {
     var amount = req.body.amount;
     if(amount < 0) {
         req.log.error("Amount must be positive");

@@ -1,4 +1,4 @@
-module.exports = function createItemEndpoint (req, res) {
+module.exports = function createItemEndpoint(req, res) {
     var newItem = {
         name: req.body.name,
         price: req.body.price

@@ -1,4 +1,4 @@
-module.exports = function resetEndpoint (req, res) {
+module.exports = function resetEndpoint(req, res) {
     req.db.drop().then(() => {
         req.db.sync().then(() => {
             req.log.warn("ORM reset");

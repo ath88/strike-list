@@ -1,4 +1,4 @@
-module.exports = function deactivateUserEndpoint (req, res) {
+module.exports = function deactivateUserEndpoint(req, res) {
     if(!req.user.active) {
         req.log.error("User already deactivated");
         return res.status(400).send({

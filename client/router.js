@@ -8,13 +8,13 @@ module.exports = Router.extend({
         "(*path)": "catchAll"
     },
 
-    strikelists: function () {
+    strikelists: function() {
         app.trigger("page", new StrikeLists({
             collection: app.lists
         }));
     },
 
-    catchAll: function (path) {
+    catchAll: function(path) {
         console.log("Didn't find path: " + path);
         this.redirectTo("");
     }

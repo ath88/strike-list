@@ -18,7 +18,7 @@ module.exports = function(config, log, callback) {
     app.use(cors());
 
     Model(config, log, (error, db) => {
-        if (error) {
+        if(error) {
             throw error;
         }
 

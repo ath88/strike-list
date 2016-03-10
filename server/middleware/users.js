@@ -1,4 +1,4 @@
-module.exports = function userMiddleware (req, res, next) {
+module.exports = function userMiddleware(req, res, next) {
     var userId = req.params.userId;
 
     req.model.users.findById(userId).then((user) => {

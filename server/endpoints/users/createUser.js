@@ -1,4 +1,4 @@
-module.exports = function createUserEndpoint (req, res) {
+module.exports = function createUserEndpoint(req, res) {
     var newUser = {
         name: req.body.name
     };

@@ -1,14 +1,48 @@
 {
+    "rules": {
+        "indent":                      [2, 4],
+        "quotes":                      [2, "double", "avoid-escape"],
+        "linebreak-style":             [2, "unix"],
+        "semi":                        [2, "always"],
+        "brace-style":                 [2, "stroustrup", { "allowSingleLine": true }],
+        "space-before-blocks":         [2, "always"],
+        "space-before-function-paren": [2, "never"],
+        "object-curly-spacing":        [2, "always"],
+        "key-spacing":                 [2, { "mode": "minimum" }],
+        "comma-spacing":               [2, { "before": false, "after": true }],
+        "no-multiple-empty-lines":     [2, { "max": 2 }],
+        "quote-props":                 [2, "as-needed"],
+        "no-use-before-define":        [2, "nofunc"],
+        "eqeqeq":                      [2, "smart"],
+        "computed-property-spacing":   [2, "never"],
+        "array-bracket-spacing":       [2, "never"],
+        "keyword-spacing":             [2, {
+                                               "before": false,
+                                               "after": false,
+                                               "overrides": {
+                                                   "try":    { "after": true },
+                                                   "return": { "after": true },
+                                                   "throw":  { "after": true },
+                                                   "else":   { "after": true }
+                                               }
+                                           }
+                                         ],
+        "block-scoped-var":            [2],
+        "curly":                       [2],
+        "space-unary-ops":             [2],
+        "space-infix-ops":             [2],
+        "no-spaced-func":              [2],
+        "no-trailing-spaces":          [2],
+        "no-extend-native":            [2],
+        "eol-last":                    [2],
+        "camelcase":                   [1],
+        "new-cap":                     [1],
+        "no-unused-vars":              [1],
+        "no-console":                  [1]
+    },
     "env": {
-        "es6":  true,
+        "es6": true,
         "node": true
     },
-    "extends": "eslint:recommended",
-    "rules": {
-        "indent":               [2, 4],
-        "linebreak-style":      [2, "unix"],
-        "quotes":               [2, "double"],
-        "semi":                 [2, "always"],
-        "object-curly-spacing": [2, "always"]
-    }
+    "extends": "eslint:recommended"
 }

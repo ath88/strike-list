@@ -7,7 +7,7 @@ module.exports = AmpersandModel.extend({
         open: ["boolean", true, true],
         createdAt: ["string", true]
     },
-    parse: function (attrs) {
+    parse: function(attrs) {
         if(attrs.list) {
             attrs = attrs.list;
         }

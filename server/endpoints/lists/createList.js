@@ -1,4 +1,4 @@
-module.exports = function createListEndpoint (req, res) {
+module.exports = function createListEndpoint(req, res) {
     var newList = {
         description: req.body.description,
         date: new Date()

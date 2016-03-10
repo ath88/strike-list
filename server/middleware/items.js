@@ -1,4 +1,4 @@
-module.exports = function itemMiddleware (req, res, next) {
+module.exports = function itemMiddleware(req, res, next) {
     var itemId = req.params.itemId;
 
     req.model.items.findById(itemId).then((item) => {

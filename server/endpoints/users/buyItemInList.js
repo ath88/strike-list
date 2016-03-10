@@ -1,4 +1,4 @@
-module.exports = function buyItemInList (req, res) {
+module.exports = function buyItemInList(req, res) {
     var amount = req.body.amount;
     if(!amount || amount < 0) {
         req.log.error("Amount must be positive");
@@ -16,7 +16,7 @@ module.exports = function buyItemInList (req, res) {
     };
 
     req.model.items.findById(req.params.itemId).then((item) => {
-        if (!item) {
+        if(!item) {
             throw "no item";
         }
         req.user.balance = (req.user.balance - amount * item.price) + "";
