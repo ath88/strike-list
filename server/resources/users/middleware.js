@@ -1,7 +1,7 @@
 module.exports = function userMiddleware(req, res, next) {
     var userId = req.params.userId;
 
-    req.model.users.findById(userId).then((user) => {
+    req.models.users.findById(userId).then((user) => {
         if(!user) {
             req.log.warn("Could not find user: " + userId);
             return res.status(404).send({

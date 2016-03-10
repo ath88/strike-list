@@ -1,6 +1,6 @@
 function modelMiddleware(db, req, res, next) {
     req.db = db;
-    req.model = db.models;
+    req.models = db.models;
     return next();
 }
 

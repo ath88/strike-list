@@ -15,7 +15,7 @@ module.exports = function buyItemInListForUser(req, res) {
         amount: amount
     };
 
-    req.model.items.findById(req.params.itemId).then((item) => {
+    req.models.items.findById(req.params.itemId).then((item) => {
         if(!item) {
             throw "no item";
         }
@@ -25,7 +25,7 @@ module.exports = function buyItemInListForUser(req, res) {
 
         return req.user.save();
     }).then(() => {
-        return req.model.purchases.create(newPurchase);
+        return req.models.purchases.create(newPurchase);
     }).then((purchase) => {
         req.log.info("Purchase made");
         res.status(200).send({ user: req.user, purchase: purchase });

@@ -4,7 +4,7 @@ module.exports = function createUser(req, res) {
         domainId: req.body.domainId
     };
 
-    req.model.users.create(newUser).then((user) => {
+    req.models.users.create(newUser).then((user) => {
         req.log.info("User created");
         res.status(200).send({ user: user });
     })

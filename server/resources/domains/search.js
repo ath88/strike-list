@@ -1,5 +1,5 @@
 module.exports = function searchForDomains(req, res) {
-    req.model.domains.findAll({ where: req.query }).then((domains) => {
+    req.models.domains.findAll({ where: req.query }).then((domains) => {
         req.log.info("Domains retrieved");
         res.status(200).send({ domains: domains });
     }).catch((error) => {

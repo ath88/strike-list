@@ -4,7 +4,7 @@ module.exports = function createItem(req, res) {
         price: req.body.price
     };
 
-    req.model.items.create(newItem).then((item) => {
+    req.models.items.create(newItem).then((item) => {
         req.log.info("Item created");
         res.status(200).send({ item: item });
     })

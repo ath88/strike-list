@@ -6,7 +6,7 @@ module.exports = function resetEndpoint(req, res) {
             name: "",
             minBalance: 0
         };
-        return req.model.domains.create(newDomain);
+        return req.models.domains.create(newDomain);
     }).then(() => {
         req.log.warn("Database was reset");
         res.status(200).send({ status: "success" });

@@ -4,7 +4,7 @@ module.exports = function createDomain(req, res) {
         minBalance: req.body.price
     };
 
-    req.model.domains.create(newDomain).then((domain) => {
+    req.models.domains.create(newDomain).then((domain) => {
         req.log.info("Domain created");
         res.status(200).send({ domain: domain });
     })

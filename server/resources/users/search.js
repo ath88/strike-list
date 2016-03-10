@@ -1,5 +1,5 @@
 module.exports = function searchForUsers(req, res) {
-    req.model.users.findAll({ where: req.query }).then((users) => {
+    req.models.users.findAll({ where: req.query }).then((users) => {
         req.log.info("Users retrieved");
         res.status(200).send({ users: users });
     }).catch((error) => {

@@ -5,7 +5,7 @@ module.exports = function createList(req, res) {
         domainId: req.body.domainId
     };
 
-    req.model.lists.create(newList).then((list) => {
+    req.models.lists.create(newList).then((list) => {
         req.log.info("List created");
         res.status(200).send({ list: list });
     }).catch((error) => {

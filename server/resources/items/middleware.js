@@ -1,7 +1,7 @@
 module.exports = function itemMiddleware(req, res, next) {
     var itemId = req.params.itemId;
 
-    req.model.items.findById(itemId).then((item) => {
+    req.models.items.findById(itemId).then((item) => {
         if(!item) {
             req.log.warn("Could not find item: " + itemId);
             return res.status(404).send({

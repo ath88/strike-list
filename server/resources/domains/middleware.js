@@ -1,7 +1,7 @@
 module.exports = function domainMiddleware(req, res, next) {
     var domainId = req.params.domainId;
 
-    req.model.domains.findById(domainId).then((domain) => {
+    req.models.domains.findById(domainId).then((domain) => {
         if(!domain) {
             req.log.warn("Could not find domain: " + domainId);
             return res.status(404).send({
