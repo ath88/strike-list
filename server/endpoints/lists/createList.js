@@ -1,7 +1,8 @@
 module.exports = function createListEndpoint(req, res) {
     var newList = {
         description: req.body.description,
-        date: new Date()
+        date: new Date(),
+        domainId: req.body.domainId
     };
 
     req.model.lists.create(newList).then((list) => {
