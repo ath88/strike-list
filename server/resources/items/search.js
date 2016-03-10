@@ -1,4 +1,4 @@
-module.exports = function getItemsEndpoint(req, res) {
+module.exports = function searchForItems(req, res) {
     req.model.items.findAll({ where: req.query }).then((items) => {
         req.log.info("Items retrieved");
         res.status(200).send({ items: items });

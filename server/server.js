@@ -10,6 +10,8 @@ var modelMiddleware = require("./middleware/model.js");
 
 var DomainsResource = require("./resources/Domains.js");
 var UsersResource = require("./resources/Users.js");
+var ListsResource = require("./resources/Lists.js");
+var ItemsResource = require("./resources/Items.js");
 
 var resetEndpoint = require("./endpoints/reset.js");
 
@@ -26,21 +28,9 @@ module.exports = function(config, log, callback) {
         app.use("/", logMiddleware(log));
         app.use("/", modelMiddleware(db));
 
-        app.use(   "/lists/:listId",                        require("./middleware/lists.js"));
-
-        app.post(  "/lists",                                require("./endpoints/lists/createList.js"));
-        app.get(   "/lists/",                               require("./endpoints/lists/getLists.js"));
-        app.get(   "/lists/:listId",                        require("./endpoints/lists/getList.js"));
-        app.post(  "/lists/:listId/close",                  require("./endpoints/lists/closeList.js"));
-
-        app.use(   "/items/:itemId",                        require("./middleware/items.js"));
-
-        app.post(  "/items",                                require("./endpoints/items/createItem.js"));
-        app.get(   "/items",                                require("./endpoints/items/getItems.js"));
-        app.get(   "/items/:itemId",                        require("./endpoints/items/getItem.js"));
-
         app.use("/domains", new DomainsResource());
         app.use("/users",   new UsersResource());
+        app.use("/lists",   new ListsResource());
 
         app.get("/", (req, res) => { res.send({ status: "alive" }); });
 

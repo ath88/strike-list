@@ -1,4 +1,4 @@
-module.exports = function getListsEndpoint(req, res) {
+module.exports = function searchForLists(req, res) {
     req.model.lists.findAll({ where: req.query }).then((lists) => {
         req.log.info("Lists retrieved");
         res.status(200).send({ lists: lists });
