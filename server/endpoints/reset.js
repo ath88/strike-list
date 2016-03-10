@@ -1,8 +1,14 @@
 module.exports = function resetEndpoint(req, res) {
     req.db.drop().then(() => {
-        req.db.sync().then(() => {
-            req.log.warn("ORM reset");
-            res.status(200).send();
-        });
+        return req.db.sync();
+    }).then(() => {
+        var newDomain = {
+            name: "",
+            minBalance: 0
+        };
+        return req.model.domains.create(newDomain);
+    }).then(() => {
+        req.log.warn("Database was reset");
+        res.status(200).send({ status: "success" });
     });
 };
