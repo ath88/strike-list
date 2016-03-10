@@ -1,11 +1,12 @@
 var Sequelize = require("sequelize");
 var async = require("async");
 
-var defineUsers = require("./models/defineUsers.js");
-var defineLists = require("./models/defineLists.js");
-var defineItems = require("./models/defineItems.js");
-var definePurchases = require("./models/definePurchases.js");
-var defineRelations = require("./models/defineRelations.js");
+var defineDomains = require("./models/domains.js");
+var defineUsers = require("./models/users.js");
+var defineLists = require("./models/lists.js");
+var defineItems = require("./models/items.js");
+var definePurchases = require("./models/purchases.js");
+var defineRelations = require("./models/relations.js");
 
 var Model = function(config, log, callback) {
     var db = new Sequelize("postgres://postgres:password@localhost/strike-list", {
@@ -16,7 +17,8 @@ var Model = function(config, log, callback) {
         (callback) => defineUsers(db, callback),
         (callback) => defineItems(db, callback),
         (callback) => defineLists(db, callback),
-        (callback) => definePurchases(db, callback)
+        (callback) => definePurchases(db, callback),
+        (callback) => defineDomains(db, callback)
     ], (error) => {
         if(error) {
             log.error(error, "Could not create definitions");
