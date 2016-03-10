@@ -4,11 +4,11 @@
   "description": "strike list for my good friends to use",
   "main": "index.js",
   "engines": {
-      "node": "^5.8.0"
+    "node": "^5.8.0"
   },
   "license": "ISC",
   "publishConfig": {
-      "registry": "http://npmjs.org"
+    "registry": "http://npmjs.org"
   },
   "author": "Asbjørn Thegler <asbjoern@thegler.dk> (http://aths.dk)",
   "contributors": [],
@@ -19,10 +19,11 @@
     "url": "https://github.com/ath88/strike-list/issues"
   },
   "scripts": {
-      "start": "node index.js | node_modules/.bin/bunyan -o long",
-      "test": "node node_modules/.bin/jasmine",
-      "test-integration": "node node_modules/.bin/cucumber",
-      "cover": "node node_modules/.bin/istanbul --include-all-sources cover -x '**/spec/**' -x '**/features/**' node_modules/.bin/jasmine"
+    "development": "nodemon | node_modules/.bin/bunyan -o long",
+    "start": "node index.js | node_modules/.bin/bunyan -o long",
+    "test": "node node_modules/.bin/jasmine",
+    "test-integration": "node node_modules/.bin/cucumber",
+    "cover": "node node_modules/.bin/istanbul --include-all-sources cover -x '**/spec/**' -x '**/features/**' node_modules/.bin/jasmine"
   },
   "dependencies": {
     "ampersand-app": "^1.0.4",
