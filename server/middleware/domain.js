@@ -11,8 +11,10 @@ module.exports = function modelMiddleware(req, res, next) {
         domainName = "";
     }
 
+    console.log(req.method);
+
     req.models.domains.findById(domainName).then((domain) => {
-        if(!domain && (req.method !== "POST" && req.path !== "/")) {
+        if(!domain && !(req.method === "POST" && req.path === "/")) {
             req.log.warn("Could not find domain: " + domainName);
             return res.status(404).send({
                 code: "NotFound",
