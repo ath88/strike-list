@@ -9,7 +9,7 @@ var definePurchases = require("./models/purchases.js");
 var defineRelations = require("./models/relations.js");
 
 var Model = function(config, log, callback) {
-    var db = new Sequelize("postgres://postgres:password@localhost/strike-list", {
+    var db = new Sequelize("postgres://postgres:password@localhost/strikelist", {
         logging: false
     });
 
