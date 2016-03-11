@@ -1,7 +1,8 @@
 module.exports = function createItem(req, res) {
     var newItem = {
         name: req.body.name,
-        price: req.body.price
+        price: req.body.price,
+        domainName: req.domainName
     };
 
     req.models.items.create(newItem).then((item) => {

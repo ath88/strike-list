@@ -1,7 +1,7 @@
 module.exports = function createUser(req, res) {
     var newUser = {
         name: req.body.name,
-        domainId: req.body.domainId
+        domainName: req.domainName
     };
 
     req.models.users.create(newUser).then((user) => {

@@ -2,7 +2,7 @@ module.exports = function createList(req, res) {
     var newList = {
         description: req.body.description,
         date: new Date(),
-        domainId: req.body.domainId
+        domainName: req.domainName
     };
 
     req.models.lists.create(newList).then((list) => {
