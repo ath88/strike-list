@@ -1,4 +1,5 @@
 {
     "host": "localhost",
-    "port": 9100
+    "port": 9100,
+    "subdomainOffset": 1
 }

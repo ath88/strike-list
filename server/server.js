@@ -19,6 +19,8 @@ var resetEndpoint = require("./endpoints/reset.js");
 module.exports = function(config, log, callback) {
     var app = express();
 
+    app.settings["subdomain offset"] = config.subdomainOffset;
+
     app.use(bodyParser.json());
     app.use(cors());
 
@@ -32,7 +34,6 @@ module.exports = function(config, log, callback) {
         app.use("/", modelMiddleware(db));
 
         if(config.util.getEnv("NODE_ENV") === "development") {
-            app.settings["subdomain offset"] = 1;
             app.post("/reset", resetEndpoint);
         }
 
