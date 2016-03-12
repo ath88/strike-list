@@ -11,7 +11,7 @@ module.exports = function modelMiddleware(req, res, next) {
         domainName = "";
     }
 
-    console.log(req.method);
+    console.log(req.subdomains);
 
     req.models.domains.findById(domainName).then((domain) => {
         if(!domain && !(req.method === "POST" && req.path === "/")) {
@@ -21,7 +21,7 @@ module.exports = function modelMiddleware(req, res, next) {
                 reason: "Could not find domain: " + domainName
             });
         }
-        req.log = req.log.child({ domainId: domainName });
+        req.log = req.log.child({ domainName: domainName });
         req.domainName = domainName;
         req.contextDomain = domain;
         return next();
