@@ -1,5 +1,4 @@
 function logMiddleware(log, req, res, next) {
-    log.info(req.method + " " + req.url);
     req.log = log;
     return next();
 }
