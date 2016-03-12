@@ -120,10 +120,10 @@ which case knowledge of their (potentially negative) balance is lost.
 
 ``` javascript
 {
-    "userId":   1,                           //INTEGER
-    "name":    "Apple Jack",                 //STRING
-    "balance": "50",                         //FLOAT
-    "active":   true                         //BOOLEAN
+    "userId":     1,                         //INTEGER
+    "name":      "Apple Jack",               //STRING
+    "balance":   "50",                       //FLOAT
+    "active":     true,                      //BOOLEAN
     "createdAt": "2016-03-10T21:15:06.123Z", //STRING
     "updatedAt": "2016-03-10T21:15:06.123Z"  //STRING
 }
