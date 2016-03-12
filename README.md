@@ -52,6 +52,7 @@ GET /apiv0/lists
 
 .. which will return all open lists.
 
+All timestamps are given in [ISO8601](https://xkcd.com/1179/).
 
 ## Items
 Items are whatever you are selling to your good friends. They can be anything,
