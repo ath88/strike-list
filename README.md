@@ -14,7 +14,7 @@ it.
 # API
 
 The API is currently in version 0 (alpha), and resides on `/apiv0`. All
-endpoints are mounted onto this path.
+resources are mounted onto this path.
 
 When you post data to the API, it will either be through a specific URL that
 contains id's, or with a JSON object in the request body.
@@ -95,8 +95,8 @@ in which case it can be regarded as *archived*.
 ### Schema
 ``` javascript
 {
-    "listId":    1,                          //INTEGER
-    "open":      true,                       //BOOLEAN
+    "listId":     1,                         //INTEGER
+    "open":       true,                      //BOOLEAN
     "createdAt": "2016-03-10T21:15:06.123Z", //STRING
     "updatedAt": "2016-03-10T21:15:06.123Z"  //STRING
 }
@@ -120,10 +120,12 @@ which case knowledge of their (potentially negative) balance is lost.
 
 ``` javascript
 {
-    "userId":   1,           //INTEGER
-    "name":    "Apple Jack", //STRING
-    "balance": "50",         //FLOAT
-    "active":   true         //BOOLEAN
+    "userId":   1,                           //INTEGER
+    "name":    "Apple Jack",                 //STRING
+    "balance": "50",                         //FLOAT
+    "active":   true                         //BOOLEAN
+    "createdAt": "2016-03-10T21:15:06.123Z", //STRING
+    "updatedAt": "2016-03-10T21:15:06.123Z"  //STRING
 }
 ```
 
