@@ -1,4 +1,5 @@
 module.exports = function searchForItems(req, res) {
+    req.query.domainName = req.domainName;
     req.models.items.findAll({ where: req.query }).then((items) => {
         req.log.info("Items retrieved");
         res.status(200).send({ items: items });
