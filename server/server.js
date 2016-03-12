@@ -19,8 +19,8 @@ var resetEndpoint = require("./endpoints/reset.js");
 module.exports = function(config, log, callback) {
     var app = express();
 
-    app.settings["subdomain offset"] = config.subdomainOffset;
-
+    app.set("subdomain offset", config.subdomainOffset);
+    app.set("trust proxy", config.trustProxy);
     app.use(bodyParser.json());
     app.use(cors());
 

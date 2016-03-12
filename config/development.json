@@ -1,4 +1,5 @@
 {
     "port": 3100,
-    "subdomainOffset": 1
+    "subdomainOffset": 1,
+    "trustProxy": false
 }
